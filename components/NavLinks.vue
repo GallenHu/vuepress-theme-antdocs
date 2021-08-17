@@ -102,7 +102,9 @@ export default {
   },
   computed: {
     currentPage() {
-      return [this.currentPath(this.$page.path)]
+      const fullpath = this.currentPath(this.$page.path)
+      const pathPart = fullpath.split('/').filter(str => !!str)
+      return [`/${pathPart[0]}/`]
     },
 
     userNav() {
